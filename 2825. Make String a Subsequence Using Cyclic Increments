@@ -1,0 +1,19 @@
+class Solution:
+    def canMakeSubsequence(self, str1: str, str2: str) -> bool:
+        i=0
+        j=0
+        m = len(str2)
+        n=len(str1)
+        for k in range(n):
+            k=ord(str1[i])+1
+            if k==123:
+                k=k-26   
+            if str1[i]==str2[j] or k==ord(str2[j]):
+                i+=1
+                j+=1
+            else:
+                i+=1
+            if j==m:
+                return True
+      
+        return False                    
