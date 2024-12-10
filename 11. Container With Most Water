@@ -1,0 +1,14 @@
+class Solution:
+    def maxArea(self, l: List[int]) -> int:
+        i=0
+        j=len(l)-1
+        area=0
+        while i<j:
+            a=(j-i) * min(l[i],l[j])
+            area = max(area,a)
+            if l[i]<l[j]:
+                i+=1
+            else:
+                j-=1
+        return area            
+        
