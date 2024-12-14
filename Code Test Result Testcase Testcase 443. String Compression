@@ -1,0 +1,20 @@
+class Solution:
+    def compress(self, chars: List[str]) -> int:
+        i=0
+        j=0
+        n=len(chars)
+        while i<n:
+            letter=chars[i]
+            c=0
+            while i<n and chars[i]==letter:
+                c+=1
+                i+=1
+            chars[j]=letter
+            j+=1
+            if c>1:
+                for k in str(c):
+                    chars[j]=k
+                    j+=1
+        return j            
+
+
