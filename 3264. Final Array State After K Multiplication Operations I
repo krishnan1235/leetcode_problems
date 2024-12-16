@@ -1,0 +1,14 @@
+class Solution:
+    def getFinalState(self, nums: List[int], k: int, multiplier: int) -> List[int]:
+        i=0
+        n=len(nums)
+        while i<k:
+            p=0
+            m=99999 
+            for ind,j in enumerate(nums):
+                if j<m:
+                    m=j
+                    p=ind
+            nums[p]=nums[p]*multiplier        
+            i+=1
+        return nums    
