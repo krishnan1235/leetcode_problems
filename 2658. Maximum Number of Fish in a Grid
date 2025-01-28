@@ -1,0 +1,25 @@
+class Solution:
+    def findMaxFish(self, grid: List[List[int]]) -> int:
+        maxi=0
+        def back(x,y):
+            if x<n and y<m and x>=0 and y>=0 and grid[x][y]!=0 and (x,y) not in v:
+                nonlocal c
+                c+=grid[x][y]
+                nonlocal maxi
+                maxi=max(maxi,c)
+                v.add((x,y))
+                back(x+1,y)
+                back(x,y-1)    
+                back(x-1,y)    
+                back(x,y+1)   
+            return c    
+            
+        n=len(grid)
+        m=len(grid[0])
+        v=set()
+        for i in range(n):
+            for j in range(m):
+                if grid[i][j]!=0 and (i,j) not in v:
+                    c=0
+                    back(i,j)
+        return maxi
