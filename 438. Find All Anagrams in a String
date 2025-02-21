@@ -16,7 +16,7 @@ class Solution:
             l+=1
             if d2[s[l]]==0:
                 del d2[s[l]] 
-            # print(d,d2)   
+         
             if d2==d:
                 res.append(l)
         return res
