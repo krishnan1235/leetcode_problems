@@ -1,0 +1,15 @@
+class Solution:
+    def isValidSudoku(self, board: List[List[str]]) -> bool:
+        n=9
+        vij=[set() for i in range(n)]
+        sq=defaultdict(set)
+        print(sq)
+        for i in range(n):
+            vj=set()
+            for j in range(n):
+                if board[i][j]!="." and (board[i][j]  in vj or board[i][j] in vij[j] or board[i][j] in sq[(i//3,j//3)]):
+                    return False
+                vj.add(board[i][j])
+                vij[j].add(board[i][j])
+                sq[(i//3,j//3)].add(board[i][j])
+        return True
